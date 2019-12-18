@@ -130,12 +130,12 @@ void Monitor::printTheMachineUsage()
 {
 	for(size_t i = 0, len = m_cpusToMonitor.size(); i < len; ++i)
 	{
-		cout << *(m_cpusToMonitor[i]) << "\n";
+		cout << *(m_cpusToMonitor[i]) << std::endl;
 	}
 
 	for(size_t i = 0, len = m_disksToMonitor.size(); i < len; ++i)
 	{
-		cout << *(m_disksToMonitor[i]) << "\n";
+		cout << *(m_disksToMonitor[i]) << std::endl;
 	}
 }
 
@@ -189,7 +189,7 @@ bool Monitor::areClientsConnected(const vector<string> &clients)
 	{
 		if(isIpAddressOnline(clients[i]))
 		{
-			cout << "IP " << clients[i] << " is online." << "\n";
+			cout << "IP " << clients[i] << " is online." << std::endl;
 
 			isAnyClientOnline = true;
 		}
@@ -209,12 +209,12 @@ bool Monitor::isIpAddressOnline(const string &ipAddress)
 
 		if (found != string::npos)
 		{
-			cout << ipAddress << " is online." << "\n";
+			cout << ipAddress << " is online." << std::endl;
 			return true;
 		}
 	}
 
-	cout << ipAddress << " is not online." << "\n";
+	cout << ipAddress << " is not online." << std::endl;
 
 	return false;
 }
