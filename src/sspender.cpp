@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 
 	partitionTable.loadPartitionTable();
 
-	cout << "PartitionTable loaded:\n" << partitionTable << "\n";
+	cout << "PartitionTable loaded:\n" << partitionTable << std::endl;
 
 	ConfigParser configParser(partitionTable);
 	Manager manager;
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 			}
 		}
 
-		cout << "\nSpin down these drives if they are idle: ";
+		cout << std::endl << "Spin down these drives if they are idle: ";
 		for(size_t i = 0, size = disksToMonitor.size(); i < size; ++i)
 		{
 			if(disksToMonitor[i].spinDown)
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
 			}
 		}
 
-		cout << "\nWake up the machine at the following times: ";
+		cout << std<<endl << "Wake up the machine at the following times: ";
 		for(size_t i = 0, size = wakeAt.size(); i < size; ++i)
 		{
 			cout << wakeAt[i] << ",";
@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		cout << "Failed to parse the cfg file, quitting." << "\n";
+		cout << "Failed to parse the cfg file, quitting." <<  std::endl;
 	}
 
 	return(EXIT_SUCCESS);
