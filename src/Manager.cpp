@@ -85,7 +85,7 @@ void Manager::monitorSystemUsage()
 		{
 			cout << "Found clients online, will stop monitoring for "
 				 << m_stopMonitoringFor
-				 << " mins." << "\n";
+				 << " mins." << std::endl;
 
 			//if any of the specified IPs is online, reset the counters and
 			//stop checking if the machine is idle, note that the usage of
@@ -107,13 +107,13 @@ void Manager::monitorSystemUsage()
 
 		if(isIdle)
 		{
-			cout << "System is idle (" << minutesTheMachineBeenIdleFor << " minutes).\n";
+			cout << "System is idle (" << minutesTheMachineBeenIdleFor << " minutes)." << std::endl;
 
 			notIdleStartTime = Clock::now();
 		}
 		else
 		{
-			cout << "System is not idle (" << minutesTheMachineBeenBusyFor << " minutes).\n";
+			cout << "System is not idle (" << minutesTheMachineBeenBusyFor << " minutes)."<< std::endl;
 		}
 
 		printTheMachineUsage();
@@ -124,7 +124,7 @@ void Manager::monitorSystemUsage()
 			if(minutesTheMachineBeenBusyFor >= m_resetMonitoringAfter)
 			{
 				cout << "System was busy for more than " << m_resetMonitoringAfter
-					 << " mins, reseting idle timer.\n";
+					 << " mins, reseting idle timer."<< std::endl;
 
 				idleStartTime = Clock::now();
 				notIdleStartTime = Clock::now();
@@ -135,7 +135,7 @@ void Manager::monitorSystemUsage()
 			{
 				cout << "system was idle for more than "
 					 << m_suspendAfter
-					 << " mins, will suspend the machine.\n";
+					 << " mins, will suspend the machine"<< std::endl;
 
 				printHeaderMessage("Suspending the machine", true);
 
@@ -242,8 +242,8 @@ void Manager::suspendUntil(double currentTimeInMinutes, double until)
 		secondsToSleep = (until + (TOTAL_MINUTES_IN_DAY - currentTimeInMinutes) - SUSPEND_OFFSET) * SECONDS_IN_MINUTE;
 	}
 
-	cout << "Got: current time in minutes (" << currentTimeInMinutes << "), suspend until(" << until << ").\n";
-	cout << "Suspending the machine for " << secondsToSleep << " seconds.\n";
+	cout << "Got: current time in minutes (" << currentTimeInMinutes << "), suspend until(" << until << ")."<< std::endl;
+	cout << "Suspending the machine for " << secondsToSleep << " seconds."<< std::endl;
 
 	vector<string> output;
 
@@ -260,7 +260,7 @@ void Manager::suspendUntil(double currentTimeInMinutes, double until)
 		cout << output[i] << " , ";
 	}
 
-	cout << "\n";
+	cout << std::endl;
 }
 
 void Manager::rtcWakeSuspend(double secondsToSleep, vector<string> *output)
