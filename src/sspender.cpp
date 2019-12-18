@@ -66,13 +66,13 @@ int main(int argc, char *argv[])
 		cout << std::fixed << std::setprecision(2);
 		printHeaderMessage("Using the following validated configuration:", false);
 
-		cout << "\nDon't suspend the machine if any of these IPs is online: ";
+		cout << std::endl << "Don't suspend the machine if any of these IPs is online: ";
 		for(size_t i = 0, size = ipToWatch.size(); i < size; ++i)
 		{
 			cout << ipToWatch[i] << ",";
 		}
 
-		cout << "\nSuspend the machine if all these devices are idle: ";
+		cout << std::endl << "Suspend the machine if all these devices are idle: ";
 		if(cpuConfig.suspendIfIdle)
 		{
 			cout << cpuConfig.cpuName << ",";
@@ -95,13 +95,13 @@ int main(int argc, char *argv[])
 			}
 		}
 
-		cout << std<<endl << "Wake up the machine at the following times: ";
+		cout << std::endl << "Wake up the machine at the following times: ";
 		for(size_t i = 0, size = wakeAt.size(); i < size; ++i)
 		{
 			cout << wakeAt[i] << ",";
 		}
 
-		cout << "\nSleep mode is: "
+		cout << std::endl << "Sleep mode is: "
 		     << (sleepMode == MEM ? "Suspend to RAM" : (sleepMode == DISK ? "Suspend to disk" : "Stand by"))
 		     << "\n";
 
